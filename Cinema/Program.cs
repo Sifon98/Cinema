@@ -45,9 +45,17 @@ namespace Cinema
                             {
                                 Console.Write("\nFelaktik inmatning, prova igen." + "\n");
                             }
+                            else if (age < 5)
+                            {
+                                Console.Write("\nPris: 0kr, du går gratis!" + "\n");
+                            }
                             else if (age < 20)
                             {
                                 Console.Write("\nUngdomspris: 80kr" + "\n");
+                            }
+                            else if (age > 100)
+                            {
+                                Console.Write("\nPris: 0kr, du går gratis!" + "\n");
                             }
                             else if (age > 64)
                             {
@@ -98,9 +106,17 @@ namespace Cinema
                         // calculate the cost of the group
                         foreach (var singleVisitor in visitors)
                         {
-                            if (singleVisitor.VisitorAge < 20)
+                            if (singleVisitor.VisitorAge < 5)
+                            {
+                                total += 0;
+                            }
+                            else if (singleVisitor.VisitorAge < 20)
                             {
                                 total += 80;
+                            }
+                            else if (singleVisitor.VisitorAge > 100)
+                            {
+                                total += 0;
                             }
                             else if (singleVisitor.VisitorAge > 64)
                             {
@@ -114,6 +130,7 @@ namespace Cinema
                         }
 
                         Console.WriteLine($"\nAntal personer: {people} st" + $"\nTotal kostnad: {total}kr");
+                        visitor.ClearVisitors();
                         break;
                     // repeat a sentence 10 times
                     case 3:

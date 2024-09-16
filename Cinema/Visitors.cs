@@ -20,6 +20,11 @@ namespace Cinema
             Visitor.Add(new Age(age));
         }
 
+        internal void ClearVisitors()
+        {
+            Visitor.Clear();
+        }
+
         internal List<Age> GetVisitors()
         {
             return Visitor;
